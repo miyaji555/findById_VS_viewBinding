@@ -4,16 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.example.findbyid_vs_viewbinding.databinding.ActivityMainBinding
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val rollButton: Button = findViewById(R.id.button)
-        val textView: TextView = findViewById(R.id.textView)
-        rollButton.setOnClickListener {
-            textView.text = "changed"
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.button.setOnClickListener {
+            binding.textView.text = "changed"
         }
     }
 }
